@@ -1,0 +1,28 @@
+{
+  "name": "angular_movies",
+  "version": "1.0.0",
+  "description": "angular movie project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server ./ -p8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/judith435/angular_movies.git"
+  },
+  "author": "judith ilson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/judith435/angular_movies/issues"
+  },
+  "homepage": "https://github.com/judith435/angular_movies#readme",
+  "dependencies": {
+    "angular": "^1.6.8",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "http-server": "^0.10.0"
+  }
+}

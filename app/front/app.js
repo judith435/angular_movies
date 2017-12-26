@@ -1,0 +1,1 @@
+var movieApp = angular.module('movie-app', []);
