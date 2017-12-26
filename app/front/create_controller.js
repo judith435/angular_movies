@@ -1,14 +1,13 @@
 movieApp.controller('createMovie', function createMovieCtrl($scope, movieService) {
     $scope.showErrorMessages = false;
-    $scope.movie_name = 'hello gunibush';
 
-    getDirectors();
+    fillDirectorsDDL();
     // $scope.notes = noteService.getNotes(true);
 
-    function getDirectors() {
-        
+    function fillDirectorsDDL() {
         movieService.getDirectors(function(directors) {
-            alert(directors);
+            alert(JSON.stringify(directors));
+            $scope.directors = directors.data;
         });
     }
 
