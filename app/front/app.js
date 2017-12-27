@@ -10,11 +10,14 @@ var manageMovies = (function() {
           link: function(scope, element, attributes, ngModel) {
             ngModel.$validators.odd = function(modelValue) {
                 alert(modelValue);
-              return true; //modelValue % 2 === 1;
+              return modelValue % 2 === 1;
             };
           }
         };
     });
+
+
+
 
     return {
 
