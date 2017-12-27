@@ -1,15 +1,29 @@
 movieApp.controller('createMovie', function createMovieCtrl($scope, movieService) {
     $scope.showErrorMessages = false;
-
     fillDirectorsDDL();
-    // $scope.notes = noteService.getNotes(true);
 
     function fillDirectorsDDL() {
         movieService.getDirectors(function(directors) {
-            alert(JSON.stringify(directors));
             $scope.directors = directors.data;
         });
     }
+
+    $scope.addMovie = function()  {
+
+        if ($scope.frmCU.$invalid){
+             $scope.showErrorMessages = true;
+             return;
+        }
+        movie = {
+            ctrl: "movie",
+            movie_name: $scope.movieName,
+            director_id: $scope.selectedDirector
+        };
+        movieService.addMovie(movie, function(response) {
+            alert(JSON.stringify(response.data));
+        });
+        $scope.showErrorMessages = false;
+    }  
 
 
 });

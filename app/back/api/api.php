@@ -16,12 +16,13 @@
     $method = $_SERVER['REQUEST_METHOD']; // verb
     $params = []; //contains data sent to server from client in REST protocol
 
-    if ($method == 'GET' || $method == 'POST') {
+    if ($method == 'GET'){//|| $method == 'POST') {
         $params = $_REQUEST;
     }
     else //verbs DELETE & PUT
     {
-        parse_str(file_get_contents("php://input"), $params);    
+        $params = json_decode(file_get_contents('php://input'),true);
+        // parse_str(file_get_contents("php://input"), $params);    
     }
 
     //trim all leading and trailing blank from parameters posted to server from client
