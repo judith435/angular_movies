@@ -9,9 +9,11 @@
         <link rel="stylesheet/less" type="text/css" href="styles/style.less" />
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
         <script src="../../node_modules/angular/angular.min.js"></script>
+        <script src="../../node_modules/angular-messages/angular-messages.min.js"></script>
         <script src="app.js"></script>
         <script src="create_controller.js"></script>
         <script src="service.js"></script>
+        <!-- <script src="validations.js"></script> -->
     </head>
     <body>
         <div id="navigation-bar"></div> 
@@ -24,7 +26,11 @@
                             <!-- <input type="text" class="form-control" id="movieName" name="movie_name" ng-model="movie_name" -->
                         <input type="text" class="form-control" ng-model="movieName" name="movieName"
                              placeholder="Enter new Movie name" maxlength="50" required>
-                        <label class="validationError" ng-show="frmCU.movieName.$error.required && showErrorMessages">Movie Name is required</label>     
+                             <label ng-show="frmCU.movieName.$error.required && showErrorMessages"
+                                                     class="validationError" >Movie Name is required</label>       
+                             <!-- <span ng-messages="frmCU.movieName.$error && showErrorMessage">     
+                                <label ng-message="required" class="validationError">Movie Name is required</label>     
+                        </span>                 -->
                     </div>
                 </div>
                 <div class="form-group row">
@@ -36,7 +42,8 @@
                         
                         <select ng-model="selectedDirector"  class="form-control" name="ddlDirectors"
                             ng-options="director.director_id as director.director_name for director in directors" required></select>  
-                        <label class="validationError" ng-show="frmCU.ddlDirectors.$error.required && showErrorMessages">No director selected</label>     
+                        <label  ng-show="frmCU.ddlDirectors.$error.required && showErrorMessages"
+                                             class="validationError">No director selected</label>     
                             <!-- <p>selected item is : {{selectedDirector}}</p> -->
                             <!-- <select ng-model="selectedDirector" 
                                     ng-options="director.director_id as director.director_name for director in directors"></select> -->
@@ -47,11 +54,16 @@
                     </div>       
                     <div class="offset-sm-2 col-sm-10">
                         <input  type="hidden"  name="ctrl" value="movie" >
-                        <button class="btn btn-primary" type="button" ng-click="addMovie()">Create Movie</button>
+                        <!-- <button class="btn btn-primary" type="button" ng-click="addMovie()">Create Movie</button> -->
+                        <button class="btn btn-primary" type="submit" ng-click="addMovie()">Create Movie</button>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <input  type="text" name="duplicate_movie"  class="validation_errors">
+                    <input  type="text" ng-model="duplicateMovie" name="duplicateMovie" value="17" odd>
+                                <!-- class="validation_errors"  -->
+                    <!-- <input type="number" name="favoriteNumber"  ng-model="profile.number" required min="1" odd prime />  -->
+                    <label  ng-show="frmCU.duplicateMovie.$error.odd && showErrorMessages"
+                              class="validationError">odd error</label>     
                 </div>
             </form>
         </div>

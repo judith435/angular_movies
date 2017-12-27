@@ -1,4 +1,4 @@
-movieApp.controller('createMovie', function createMovieCtrl($scope, movieService) {
+manageMovies.movieApp.controller('createMovie', function createMovieCtrl($scope, movieService) {
     $scope.showErrorMessages = false;
     fillDirectorsDDL();
 
@@ -9,7 +9,6 @@ movieApp.controller('createMovie', function createMovieCtrl($scope, movieService
     }
 
     $scope.addMovie = function()  {
-
         if ($scope.frmCU.$invalid){
              $scope.showErrorMessages = true;
              return;

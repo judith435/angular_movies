@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="demo">
+
+  <head>
+    <script src="https://code.angularjs.org/1.3.0-rc.4/angular.js"></script>
+    <script src="https://code.angularjs.org/1.3.0-rc.4/angular-messages.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+
+  <body ng-controller="ProfileController as profile">
+   
+    {{ profile.message }} 
+    
+    <form name="profileForm"
+          ng-submit="profile.submit(profileForm.$valid)"
+          novalidate>
+      
+      <input type="number" name="favoriteNumber"  ng-model="profile.number"
+             required min="1" odd prime /> 
+      
+      <div ng-if="profileForm.favoriteNumber.$pending">
+        Calculating....
+      </div>
+           <!-- ng-messages-include="messages.html" -->
+           <div ng-messages="profileForm.favoriteNumber.$error" 
+              class="errors">
+              <!-- overrides the min message from the include -->
+              <span ng-message="min">Must be more than 1.</span>
+              <span ng-message="required">Required!</span>
+              <!-- <span ng-message="min">Too small!</span> -->
+              <span ng-message="number">Must be a number!</span>
+              <span ng-message="odd">Odd numbers only!</span>
+              <span ng-message="prime">Prime numbers only!</span>
+
+          </div>
+
+      
+      <input type="submit" value="Save" />
+      
+    </form>
+    
+    <pre>
+{{ profileForm | json }}
+    </pre>
+  </body>
+
+</html>
