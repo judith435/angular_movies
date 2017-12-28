@@ -1,12 +1,12 @@
-manageMovies.movieApp.directive("dupli", function() {
-    return {
-      restrict: "A",
-      scope: true,
-      link: function(scope, element, attributes) {
-            return $scope.selectedDirector === 24;
-      }
-    };
-});
+// manageMovies.movieApp.directive("dupli", function() {
+//     return {
+//       restrict: "A",
+//       scope: true,
+//       link: function(scope, element, attributes) {
+//             return $scope.selectedDirector === 24;
+//       }
+//     };
+// });
 
 
 
