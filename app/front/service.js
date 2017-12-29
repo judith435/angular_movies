@@ -1,4 +1,5 @@
-manageMovies.movieApp.service('movieService', function($http) {
+// manageMovies.movieApp.service('movieService', function($http) {
+movieApp.service('movieService', function($http) {
     //http://localhost:8080/joint/movies-with-pictures/back/api/api.php?ctrl=director
                 //url : 'http://localhost:8080/joint/movies-with-pictures/back/api/api.php',
                 // url : '../back/api/api.php',

@@ -1,4 +1,5 @@
-manageMovies.movieApp.controller('createMovie', function createMovieCtrl($scope, movieService) {
+// manageMovies.movieApp.controller('createMovie', function createMovieCtrl($scope, movieService) {
+movieApp.controller('createMovie', function createMovieCtrl($scope, movieService) {
     $scope.showErrorMessages = false;
     fillDirectorsDDL();
 

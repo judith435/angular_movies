@@ -1,30 +1,30 @@
-var manageMovies = (function() {
+// var manageMovies = (function() {
 
-    var movieApp = {};
-    movieApp = angular.module('movie-app', ['ngMessages']);
+//     var movieApp = {};
+//     movieApp = angular.module('movie-app', ['ngMessages']);
 
-    movieApp.directive("odd", function() {
-        return {
-          restrict: "A",
-          require: "ngModel",
-          link: function(scope, element, attributes, ngModel) {
-            ngModel.$validators.odd = function(modelValue) {
-                alert(modelValue);
-              return modelValue % 2 === 1;
-            };
-          }
-        };
-    });
-
-
+//     movieApp.directive("odd", function() {
+//         return {
+//           restrict: "A",
+//           require: "ngModel",
+//           link: function(scope, element, attributes, ngModel) {
+//             ngModel.$validators.odd = function(modelValue) {
+//                 alert(modelValue);
+//               return modelValue % 2 === 1;
+//             };
+//           }
+//         };
+//     });
 
 
-    return {
-
-      movieApp 
-  };
-
-}());
 
 
-// var movieApp = angular.module('movie-app', ['ngMessages']);
+//     return {
+
+//       movieApp 
+//   };
+
+// }());
+
+
+var movieApp = angular.module('movie-app', ['ngMessages']);
