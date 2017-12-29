@@ -3,6 +3,32 @@ movieApp.controller('createMovie', function createMovieCtrl($scope, movieService
     $scope.showErrorMessages = false;
     $scope.duplicateFound = false;
 
+    // Model first
+    const myForm = {
+        movieName: {
+            label: 'movie name',
+            required: true,
+            type: 'text',
+            validation: function() {
+
+            }
+        },
+        movieDirecotr: {
+            label: 'movie director',
+            required: true,
+            type: {
+                name: 'select',
+                data: []
+            }
+        },
+        isOpen: {
+            label: 'is open',
+            required: false,
+            type: 'checkbox'
+        }
+    }
+    // end model first
+
     fillDirectorsDDL();
 
     function fillDirectorsDDL() {
@@ -31,7 +57,7 @@ movieApp.controller('createMovie', function createMovieCtrl($scope, movieService
             director_id: $scope.selectedDirector
         };
         movieService.addMovie(movie, function(response) {
-            alert(JSON.stringify(response.data));
+            $scope.message = (JSON.stringify(response.data));
         });
         $scope.showErrorMessages = false;
         $scope.duplicateFound = false;
