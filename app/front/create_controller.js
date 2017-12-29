@@ -1,6 +1,8 @@
 // manageMovies.movieApp.controller('createMovie', function createMovieCtrl($scope, movieService) {
-movieApp.controller('createMovie', function createMovieCtrl($scope, movieService) {
+movieApp.controller('createMovie', function createMovieCtrl($scope, movieService, validationService) {
     $scope.showErrorMessages = false;
+    $scope.duplicateFound = false;
+
     fillDirectorsDDL();
 
     function fillDirectorsDDL() {
@@ -14,6 +16,15 @@ movieApp.controller('createMovie', function createMovieCtrl($scope, movieService
              $scope.showErrorMessages = true;
              return;
         }
+
+        // validationService.setSelectedDirector($scope.selectedDirector);
+        if (!validationService.checkDuplicateMovie($scope.selectedDirector))
+        {
+            $scope.showErrorMessages = true;
+            $scope.duplicateFound = true;
+            return;
+        } 
+
         movie = {
             ctrl: "movie",
             movie_name: $scope.movieName,
@@ -23,6 +34,7 @@ movieApp.controller('createMovie', function createMovieCtrl($scope, movieService
             alert(JSON.stringify(response.data));
         });
         $scope.showErrorMessages = false;
+        $scope.duplicateFound = false;
     }  
 
 

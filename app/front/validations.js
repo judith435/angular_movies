@@ -1,13 +1,20 @@
-// manageMovies.movieApp.directive("dupli", function() {
-movieApp.directive("dupli", function() {
-        return {
-      restrict: "A",
-    //   scope: true,
-      link: function($rootScope, element, attributes) {
-            return $rootScope.selectedDirector === 24;
-      }
-    };
-});
+
+  //   function checkDuplicateMovie() {
+  //     var director = movieApp.validationService.getSelectedDirector(); 
+  //     alert(director);
+
+  // }
+
+// // manageMovies.movieApp.directive("dupli", function() {
+// movieApp.directive("dupli", function() {
+//         return {
+//       restrict: "AE",
+//     //   scope: true,
+//       link: function($validationService, element, attributes) {
+//             return $validationService.selectedDirector === 24;
+//       }
+//     };
+// });
 
 
 // manageMovies.movieApp.directive("odd", function() {
