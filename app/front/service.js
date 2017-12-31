@@ -10,7 +10,8 @@ movieApp.service('movieService', function($http) {
         };
     
         $http({
-            url : 'http://localhost:8080/joint/angular_movies/app/back/api/api.php',
+            url : '../back/api/api.php',
+         //   url : 'http://localhost:8080/joint/angular_movies/app/back/api/api.php',
             method : "GET",
             params: {ctrl: 'director'}
         }).then(success, error);
@@ -19,7 +20,8 @@ movieApp.service('movieService', function($http) {
     this.addMovie = function (movie, success) { 
 
         var request = $http({
-            url: 'http://localhost:8080/joint/angular_movies/app/back/api/api.php',
+            url : '../back/api/api.php',
+            // url: 'http://localhost:8080/joint/angular_movies/app/back/api/api.php',
             method: "POST",
             data: movie,
             headers: "'Content-Type': 'application/x-www-form-urlencoded'"
