@@ -2,6 +2,7 @@
 movieApp.controller('createMovie', function createMovieCtrl($scope, movieService, validationService) {
     $scope.showErrorMessages = false;
     $scope.duplicateFound = false;
+    $scope.movieName = "hello gunibush";
 
     // Model first
     const myForm = {
